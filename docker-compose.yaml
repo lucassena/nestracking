@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  app:
+    build: .
+    ports:
+      - '3000:3000'
+      - '5555:5555'
+    volumes:
+      - .:/home/node/app
+    extra_hosts:
+      - 'host.docker.internal:192.168.15.5'
+
+  db:
+    image: bitnami/mongodb:latest
+    volumes:
+      - mongodb_data:/bitnami/mongodb
+    environment:
+      MONGODB_ROOT_PASSWORD: root
+      MONGODB_REPLICA_SET_MODE: primary
+      MONGODB_REPLICA_SET_KEY: replicasetkey123
+      MONGODB_ADVERTISED_HOSTNAME: db
+      MONGODB_INITIAL_PRIMARY_HOST: db
+      MONGODB_DATABASE: nestracking
+
+  redis:
+    image: redis:7.2-alpine
+
+volumes:
+  mongodb_data:
+    driver: local

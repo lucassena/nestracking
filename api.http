@@ -1,0 +1,27 @@
+GET http://localhost:3000
+
+### Get all routes
+GET http://localhost:3000/routes
+
+### Get one route
+GET http://localhost:3000/routes/64ed3ca2c3682f61f4df39ee
+
+### Create a route
+POST http://localhost:3000/routes
+Content-Type: application/json
+
+{
+  "name": "Casa a Casa - Volta",
+  "source_id": "ChIJwW7IUgVazpQRCgcERIeVt4c",
+  "destination_id": "Ek9SLiBNb250ZSBSb3lhbCwgMzEwIC0gSmFyZGltIE1vbnRyZWFsIFJlc2lkZW5jZSwgSW5kYWlhdHViYSAtIFNQLCAxMzMzMSwgQnJhc2lsIjESLwoUChIJv78i3XezyJQRuXHzNusgwqoQtgIqFAoSCfGuLXmds8iUEVT5wzf4T74f"
+}
+
+### Get Places
+GET http://localhost:3000/places?text=Av. Divino Salvador, 12, São Paulo
+
+
+// originId: Ek9SLiBNb250ZSBSb3lhbCwgMzEwIC0gSmFyZGltIE1vbnRyZWFsIFJlc2lkZW5jZSwgSW5kYWlhdHViYSAtIFNQLCAxMzMzMSwgQnJhc2lsIjESLwoUChIJv78i3XezyJQRuXHzNusgwqoQtgIqFAoSCfGuLXmds8iUEVT5wzf4T74f
+// destinationId: ChIJwW7IUgVazpQRCgcERIeVt4c
+
+### Get directions
+GET http://localhost:3000/directions?originId=Ek9SLiBNb250ZSBSb3lhbCwgMzEwIC0gSmFyZGltIE1vbnRyZWFsIFJlc2lkZW5jZSwgSW5kYWlhdHViYSAtIFNQLCAxMzMzMSwgQnJhc2lsIjESLwoUChIJv78i3XezyJQRuXHzNusgwqoQtgIqFAoSCfGuLXmds8iUEVT5wzf4T74f&destinationId=ChIJwW7IUgVazpQRCgcERIeVt4c
